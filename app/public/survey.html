@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang= "en-Us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta charset="ISO-8859-1">
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<title> Friend Finder Survey </title>
+	
+	
+
+    
+<link rel="stylesheet" type="text/css" href= "style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+      <h1>Step 1: Take the survey</h1>
+     </div>
+      
+      <a href="/home"><button id='tables' type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Home</button></a>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Survey</strong></h3>
+            	<p>Answer on a 1-5 scale, 1 being you least agree, 5 being you most strongly agree </p>
+          </div>
+          <div class="panel-body">
+            <form method="POST" role="form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+               <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="text" class="form-control" id="photo" >
+              </div>
+
+              <div class="form-group">
+                <label>Question1</label>
+                
+			      <input type="number" name="quantity" min="1" max="5" id="ques1">
+              </div>
+              <div class="form-group">
+                <label for="role">Question2</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques2">
+              </div>
+              <div class="form-group">
+                <label for="age">Question3</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques3">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question4</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques4">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question5</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques5">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question6</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques6">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question7</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques7">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question8</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques8">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question9</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques9">
+              </div>
+              <div class="form-group">
+                <label for="force-points">Question10</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques10">
+              </div>
+           
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Submit</button>
+            </div>
+
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="seeMatch"><span class="glyphicon glyphicon-fire"></span> See your match</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+		<div class="panel-heading">
+          <h3 class="panel-title"><strong>Top Match</strong></h3>
+          	<span id="topMatch"></span>
+          	<div id="matchImg"></div>
+          </div>
+          <div class="panel-body">
+            <div class="well">
+              
+              <h2 id="matchName"></h2>
+              <div id="match">
+             	 </div>
+            </div>
+          </div>
+
+<script type="text/javascript">
+    
+    $("#add-btn").on("click", function(event) {
+      // event.preventDefault();
+		 var a = parseInt($("#ques1").val());
+         var b = parseInt($("#ques2").val());
+         var c = parseInt($("#ques3").val());
+         var d = parseInt($("#ques4").val());
+         var e = parseInt($("#ques5").val());
+         var f = parseInt($("#ques6").val());
+         var g = parseInt($("#ques7").val());
+         var h = parseInt($("#ques8").val());
+         var i = parseInt($("#ques9").val());
+         var j = parseInt($("#ques10").val());
+      var newFriend = {
+      	name: $("#name").val().trim(),
+      	photo: $("#photo").val(),
+      	scores: [
+          $("#ques1").val(),
+        $("#ques2").val(),
+          $("#ques3").val(),
+        $("#ques4").val(),
+          $("#ques5").val(),
+         $("#ques6").val(),
+          $("#ques7").val(),
+         $("#ques8").val(),
+         $("#ques9").val(),
+         $("#ques10").val()
+        	],
+        difference: 0,	
+        total: (a+b+c+d+e+f+g+h+i+j)
+        };
+      
+      $.post("/api/friends", newFriend)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding friend...");
+      });
+    });
+
+//add button to show match (disable button as default, enable after submit)
+    $("#seeMatch").on("click", function(event) {
+      event.preventDefault();
+      	
+    	$.get("/api/friends", function(data) {
+       		 
+
+	        	var lastUser = data[data.length - 1];
+	        	var currentScore = lastUser.total;
+	        	var differenceArray = [];
+	        	console.log("Last user's score was: " + currentScore);
+
+	        	for (var i = 0; i < data.length -1; i++) {
+	        		data[i].difference = Math.abs(data[i].total - currentScore);
+	        		// differenceArray.push(Math.abs(difference));
+	        		
+	        	}
+
+	     //    	differenceArray.sort(function(a, b) {
+   	 	// 			return parseFloat(a.total) - parseFloat(b.total);
+						// })
+
+	       	 	data.sort(function(a, b) {
+   	 				return parseFloat(a.difference) - parseFloat(b.difference);
+						})
+	       	 	console.log(data);
+	       	 	var topMatch = $("<h5> Your top match is : " + data[1].name + "</h5>");
+	       	 	 $("#topMatch").append(topMatch);
+
+	       	 	var topImg = $("<img src=" + data[1].photo + " alt=" + data[1].name + " style= 'width:50px;height:50px;'>")
+	       	 	 $("#matchImg").append(topImg);
+
+	       	 	 
+	       	 	for (var i = 0; i < data.length; i++) { 
+
+	       	 
+
+        	var newDiv = $("<div>" + data[i].name + " : " + data[i].total + "</div>");
+
+          		$("#match").append(newDiv);
+        		 
+        		
+        		}
+
+		          
+        })}
+
+        );
+    
+
+
+  </script>
+</body>
+
+</html>
