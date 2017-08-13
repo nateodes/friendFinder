@@ -12,6 +12,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -21,9 +22,63 @@
 	<title> Friend Finder Survey </title>
 	
 	
-
+<link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
     
-<link rel="stylesheet" type="text/css" href= "style.css">
+<style>
+body {
+    background-color: #AA9B39;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.container {
+    width: 90%;
+}
+
+h1 {
+    text-align: center;
+} 
+
+.jumbotron {
+    width: 70%;
+    margin-left: 80px;
+    background-color: #D4C66A;
+    margin-top: 50px;
+    border: 2px solid black;
+}
+
+#myModal {
+	width: 35%;
+}
+
+.panel-body {
+    background-color: #554A00;
+}
+
+.panel-title, .panel-heading, p, label {
+    font-size: 2.0em;
+    background-color: #6BA099;
+    border: 0px;
+    padding: 0px;
+
+}
+
+label, input, button {
+	padding: 5px;
+	border-radius: 10px;
+	width: auto;
+	text-align: center;
+	margin: 5px;
+}
+
+input {
+	text-align: left;
+	font-family: helvetica, times;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -31,10 +86,11 @@
 <div class="container">
     <div class="jumbotron">
       <h1>Step 1: Take the survey</h1>
+      <a href="/home"><button id='tables' type="button" class="btn btn-success btn-md"><span class="glyphicon glyphicon-home"></span> Home</button></a>
      </div>
       
-      <a href="/home"><button id='tables' type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Home</button></a>
-    </div>
+      
+    
     <div class="row">
       <div class="col-lg-12">
         <div class="panel panel-default">
@@ -43,67 +99,69 @@
             	<p>Answer on a 1-5 scale, 1 being you least agree, 5 being you most strongly agree </p>
           </div>
           <div class="panel-body">
-            <form method="POST" role="form">
+            <form method="POST" role="form" id="survey">
               <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" required>
               </div>
 
                <div class="form-group">
-                <label for="photo">Photo</label>
-                <input type="text" class="form-control" id="photo" >
+                <label for="photo">Photo:</label>
+                <input type="text" class="form-control" id="photo" required>
               </div>
 
               <div class="form-group">
-                <label>Question1</label>
+                <label>You and Eric Cartman have a lot in common...</label>
                 
-			      <input type="number" name="quantity" min="1" max="5" id="ques1">
+			      <input type="number" name="quantity" min="1" max="5" id="ques1" required>
               </div>
               <div class="form-group">
-                <label for="role">Question2</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques2">
+                <label for="role">Taking a risk for you is trying Indian food...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques2" required>
               </div>
               <div class="form-group">
-                <label for="age">Question3</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques3">
+                <label for="age">On a Friday night you would rather watch Friends than be with your friends...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques3" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question4</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques4">
+                <label for="points">I think the Moon landing was a hoax...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques4" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question5</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques5">
+                <label for="points">I thought the show 'Lost' was a COMPLETE waste of time...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques5" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question6</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques6">
+                <label for="points">I prefer The Harry Potter series to LOTR...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques6" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question7</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques7">
+                <label for="points">I have many leather-bound books and my apartment smells of rich mahogany...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques7" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question8</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques8">
+                <label for="points">My favorite type of pet is a cat...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques8" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question9</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques9">
+                <label for="points">My voice is a mixture of Fergie and Jesus...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques9" required>
               </div>
               <div class="form-group">
-                <label for="force-points">Question10</label>
-                <input type="number" name="quantity" min="1" max="5" id="ques10">
+                <label for="points">If I am not first, I am last...</label>
+                <input type="number" name="quantity" min="1" max="5" id="ques10" required>
               </div>
            
             </form>
             <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Submit</button>
+            <div class="text-left">
+              <button type="submit" value="Submit" class="btn btn-warning btn-lg" id="add-btn"> Submit</button>
             </div>
 
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="seeMatch"><span class="glyphicon glyphicon-fire"></span> See your match</button>
+              <button type="button" id="seeMatch" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-fire"></span>
+  See your match
+</button>
             </div>
           </div>
         </div>
@@ -111,24 +169,35 @@
     </div>
   </div>
 
-		<div class="panel-heading">
-          <h3 class="panel-title"><strong>Top Match</strong></h3>
-          	<span id="topMatch"></span>
-          	<div id="matchImg"></div>
-          </div>
-          <div class="panel-body">
-            <div class="well">
-              
-              <h2 id="matchName"></h2>
-              <div id="match">
-             	 </div>
-            </div>
-          </div>
+ 
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Your Top Match!!</h4>
+      </div>
+      <div class="modal-body" id="topMatch">
+        
+      </div>
+      <div id="matchImg"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="/survey"><button id='tables' type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-repeat"></span> Take the Survey Again</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+		
 
 <script type="text/javascript">
     
     $("#add-btn").on("click", function(event) {
-      // event.preventDefault();
+      event.preventDefault();
 		 var a = parseInt($("#ques1").val());
          var b = parseInt($("#ques2").val());
          var c = parseInt($("#ques3").val());
@@ -139,8 +208,26 @@
          var h = parseInt($("#ques8").val());
          var i = parseInt($("#ques9").val());
          var j = parseInt($("#ques10").val());
+
+         var user = $("#name").val();
+
+         if (user === "" || a === "" || b === "" || c === "" || d === "" || e === "" || f === "" || g === "" || h === "" || i === "" || j === "") {
+         	alert("Please fill out all fields...");
+         	return;
+         }
+
+         if (a > 5 || b > 5 || c > 5 || d > 5 || e > 5 || f > 5 || g > 5 || h > 5 || i > 5 || j > 5) {
+         	alert("Please use values between 1-5...");
+         	return;
+         }
+
+         if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0 || g < 0 || h < 0 || i < 0 || j < 0) {
+         	alert("Please use values between 1-5...");
+         	return;
+         }
+
       var newFriend = {
-      	name: $("#name").val().trim(),
+      	name: $("#name").val().trim(), 
       	photo: $("#photo").val(),
       	scores: [
           $("#ques1").val(),
@@ -162,6 +249,7 @@
       .done(function(data) {
         console.log(data);
         alert("Adding friend...");
+        document.getElementById("survey").reset();
       });
     });
 
@@ -192,12 +280,12 @@
 						})
 	       	 	console.log(data);
 	       	 	var topMatch = $("<h5> Your top match is : " + data[1].name + "</h5>");
-	       	 	 $("#topMatch").append(topMatch);
+	       	 	 $("#topMatch").html(topMatch);
 
 	       	 	var topImg = $("<img src=" + data[1].photo + " alt=" + data[1].name + " style= 'width:50px;height:50px;'>")
-	       	 	 $("#matchImg").append(topImg);
+	       	 	 $("#matchImg").html(topImg);
 
-	       	 	 
+
 	       	 	for (var i = 0; i < data.length; i++) { 
 
 	       	 

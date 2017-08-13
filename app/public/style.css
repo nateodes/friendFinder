@@ -1,0 +1,33 @@
+body {
+    background-color: #AA9B39;
+    font-family: 'Just Another Hand', cursive;
+}
+
+h1 {
+    text-align: center;
+}
+
+.panel-title, .panel-heading, p, label {
+    font-size: 2.0em;
+    background-color: #6BA099;
+    border: 0px;
+    padding: 0px;
+
+}
+
+.container {
+    width: 90%;
+}
+
+.jumbotron {
+    width: 70%;
+    margin-left: 150px;
+    background-color: #D4C66A;
+    margin-top: 50px;
+    border: 2px solid black;
+}
+
+.panel-body {
+    background-color: #554A00;
+}
+

@@ -5,6 +5,10 @@ var PORT = process.env.PORT || 3000;
 
 var app = express();
 
+app.use(express.static(__dirname + 'app/public/style.css'));
+
+
+
 var friends = [];
 
 app.use(bodyParser.json());
@@ -38,6 +42,8 @@ app.get("/home", function(req, res) {
 app.get("/survey", function(req, res) {
   res.sendFile(path.join(__dirname, "app/public/survey.html"));
 });
+
+
 
 app.listen(PORT, function() {
   console.log("Server is listening on port: " + PORT);
